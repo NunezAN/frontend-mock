@@ -1,0 +1,14 @@
+.userIcon__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userIcon__button{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #7645d9;
+    color: #fff;
+    font-size: 24px;
+    border: none;
+}

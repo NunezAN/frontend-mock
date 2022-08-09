@@ -1,9 +1,10 @@
 import React from 'react';
+import "../style/UserIcon.css";
 
 const UserIcon = () => {
     return (
         <div className="userIcon__container">
-            <button>A</button>
+            <button className='userIcon__button'>A</button>
         </div>
     );
 }
