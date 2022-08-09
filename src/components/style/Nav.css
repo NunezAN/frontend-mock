@@ -1,0 +1,15 @@
+.nav{
+    background-color: #faf9fa;
+}
+.nav__container{
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo__img{
+    width: 100%;
+}
+.logo__container{
+    max-width: 240px;
+}
