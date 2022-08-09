@@ -5,12 +5,25 @@ import UserIcon from "./ui/UserIcon";
 import { auth } from "../firebase/init";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import LoadingState from "./ui/LoadingState";
 
 const Nav = () => {
   const [user, setUser] = React.useState({});
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      setLoading(false);
+      if (user) {
+        setUser(user);
+      }
+    });
+  }, []);
 
   function register() {
     console.log("Registering...");
@@ -48,7 +61,9 @@ const Nav = () => {
           />
         </div>
         <div className="nav__links">
-          {Object.keys(user).length > 0 ? (
+          {loading ? (
+            <LoadingState></LoadingState>
+          ) : Object.keys(user).length > 0 ? (
             <UserIcon user={user} logout={logOut}></UserIcon>
           ) : (
             <LoginRegister register={register} login={login}></LoginRegister>
